@@ -8,11 +8,7 @@ import static org.junit.Assert.*;
 
 public class Solution_fib {
 
-/* If n is even then k = n/2:
-F(n) = [2*F(k-1) + F(k)]*F(k)
 
-If n is odd then k = (n + 1)/2
-F(n) = F(k)*F(k) + F(k-1)*F(k-1) */
     static int[] f= new int[999];
     public static int fib(int n) {
 
@@ -22,15 +18,13 @@ F(n) = F(k)*F(k) + F(k-1)*F(k-1) */
         if (n == 1 || n == 2)
             return (f[n] = 1);
       
-        // If fib(n) is already computed
+      
         if (f[n] != 0)
             return f[n];
       
         int k = (n & 1) == 1? (n + 1) / 2
                             : n / 2;
       
-        // Applyting above formula [Note value
-        // n&1 is 1 if n is odd, else 0.
         f[n] = (n & 1) == 1? (fib(k) * fib(k) + 
                         fib(k - 1) * fib(k - 1))
                        : (2 * fib(k - 1) + fib(k)) 
